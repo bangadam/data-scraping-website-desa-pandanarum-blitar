@@ -154,7 +154,7 @@ def show():
     url = Constants.API_HOST + "/index.php/first/artikel/32"
     res = request_session.get(url)
     res = bs4.BeautifulSoup(res.content, 'html.parser')
-    item = res.find('div', class_="teks").text
+    item = res.find('div', class_="teks").text.replace('\n', '')
     return {
         "status": 200,
         "data": item
